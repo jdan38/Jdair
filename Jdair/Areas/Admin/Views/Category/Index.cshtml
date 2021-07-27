@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="wrapper">
+    <div class="main-content">
+        <br /><br />
+       
+            <div class="row">
+                <div class="col-6">
+                    <h2 class="text-info"> Category List</h2>
+                </div>
+                <br />
+                <div class="col-6 text-right">
+                    <partial name="_CreateButtonPartial" />
+                </div>
+            </div>
+       
+      
+        <div class="row row-inline-block small-spacing">
+            <div class="col-lg-12 col-xs-12">
+                <div class="box-content">
+
+                    @if (Model.Count() > 0)
+                    {
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>@Html.DisplayNameFor(m => m.Name)</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                             @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        
+                                        <th scope="row">@Html.DisplayFor(m => item.Id)</th>
+                                       
+                                        <td>
+                                            @Html.DisplayFor(m => item.Name)
+                                        </td>
+                                        <td>
+                                            <partial name="_TableButtonPartial" model="item.Id" />
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>No Categories Exist</p>
+                    }
+                </div>              
+            </div>
+        </div>
+    </div>
+ </div>

@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Flight>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="wrapper">
+    <div class="main-content">
+        <br /><br />
+
+        <div class="row">
+            <div class="col-6">
+                <h2 class="text-info"> Flights List</h2>
+            </div>
+            <br />
+            <div class="col-6 text-right">
+                <partial name="_CreateButtonPartial" />
+            </div>
+        </div>
+
+
+        <div class="row row-inline-block small-spacing">
+            <div class="col-lg-6 col-xs-12">
+                <div class="box-content">
+
+                    @if (Model.Count() > 0)
+                    {
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th scope="row">1</th>
+                                       
+                                        <td>EDIT | DElETE | DETAILS</td>
+                                    </tr>
+                                }
+
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>No Categories Exist</p>
+                    }
+                </div>
+                <!-- /.box-content -->
+                <!--</div>-->
+                <!-- /.col-lg-6 col-xs-12 -->
+                <!--</div>-->
+                <!-- /.row row-inline-block small-spacing -->
+                <!--<footer class="footer">
+                    <ul class="list-inline">
+                        <li>2016 © NinjaAdmin.</li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </footer>-->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--<script src="assets/scripts/jquery.min.js"></script>
+<script src="assets/scripts/modernizr.min.js"></script>
+<script src="assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/plugin/nprogress/nprogress.js"></script>
+<script src="assets/plugin/sweet-alert/sweetalert.min.js"></script>
+<script src="assets/plugin/waves/waves.min.js"></script>-->
+<!-- Full Screen Plugin -->
+<!--<script src="assets/plugin/fullscreen/jquery.fullscreen-min.js"></script>
+
+<script src="assets/scripts/main.min.js"></script>
+<script src="assets/color-switcher/color-switcher.min.js"></script>-->

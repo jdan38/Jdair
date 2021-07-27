@@ -1,0 +1,109 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+@*<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h4>Create a new account.</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.Email"></label>
+                <input asp-for="Input.Email" class="form-control" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ConfirmPassword"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h4>Use another service to register.</h4>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                            for details on setting up this ASP.NET application to support logging in via external services.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div>*@
+
+<div id="single-wrapper">
+    <form action="#" class="frm-single">
+        <div class="inside">
+            <div class="title"><strong>JD Airline</strong>Admin</div>
+            <!-- /.title -->
+            <div class="frm-title">Register</div>
+            <!-- /.frm-title -->
+            <div class="frm-input"><input asp-for="Input.Email" placeholder="Email" class="frm-inp"><i class="fa fa-envelope frm-ico"></i></div>
+            <!-- /.frm-input -->
+            <div class="frm-input"><input asp-for="Input.Password" placeholder="Username" class="frm-inp"><i class="fa fa-user frm-ico"></i></div>
+            <!-- /.frm-input -->
+            <div class="frm-input"><input asp-for="Input.ConfirmPassword" placeholder="Password" class="frm-inp"><i class="fa fa-lock frm-ico"></i></div>
+            <!-- /.frm-input -->
+            <div class="clearfix margin-bottom-20">
+                <div class="checkbox primary"><input type="checkbox" id="accept"><label for="accept">I accept Terms and Conditions</label></div>
+                <!-- /.checkbox -->
+            </div>
+            <!-- /.clearfix -->
+            <button type="submit" class="frm-submit">Register<i class="fa fa-arrow-circle-right"></i></button>
+            <div class="row small-spacing">
+                <div class="col-sm-12">
+                    <div class="txt-login-with txt-center">or register with</div>
+                    <!-- /.txt-login-with -->
+                </div>
+                <!-- /.col-sm-12 -->
+                <div class="col-sm-6"><button type="button" class="btn btn-sm btn-icon btn-icon-left btn-social-with-text btn-facebook text-white waves-effect waves-light"><i class="ico fa fa-facebook"></i><span>Facebook</span></button></div>
+                <!-- /.col-sm-6 -->
+                <div class="col-sm-6"><button type="button" class="btn btn-sm btn-icon btn-icon-left btn-social-with-text btn-google-plus text-white waves-effect waves-light"><i class="ico fa fa-google-plus"></i>Google+</button></div>
+                <!-- /.col-sm-6 -->
+            </div>
+            <!-- /.row -->
+            <a href="page-login.html" class="a-link"><i class="fa fa-sign-in"></i>Already have account? Login.</a>
+            <div class="frm-footer">NinjaAdmin © 2016.</div>
+            <!-- /.footer -->
+        </div>
+        <!-- .inside -->
+    </form>
+    <!-- /.frm-single -->
+</div>
+<!--/#single-w -->
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
