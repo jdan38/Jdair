@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SubCategory>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<br /><br />
+<div id="wrapper">
+    <div class="main-content">*@
+<br /><br />
+<div class="border backgroundWhite">
+        <div class="row">
+            <div class="col-6">
+                <h2 class="text-info"> SubCategory List</h2>
+            </div>
+            <br />
+            <div class="col-6 text-right">
+                <partial name="_CreateButtonPartial" />
+            </div>
+        </div>
+
+
+        <div class="row row-inline-block small-spacing">
+            <div class="col-lg-12 col-xs-12">
+                <div class="box-content">
+
+                    @if (Model.Count() > 0)
+                    {
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>@Html.DisplayNameFor(m => m.Name)</th>
+                                    <th>@Html.DisplayNameFor(m => m.Category.Name)</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+
+                                    <th scope="row">@Html.DisplayFor(m => item.Id)</th>
+
+                                    <td>
+                                        @Html.DisplayFor(m => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(m => item.Category.Name)
+                                    </td>
+                                   
+                                    <td>
+                                        <partial name="_TableButtonPartial" model="item.Id" />
+                                    </td>
+                                   
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>No Sub Category Exist</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+

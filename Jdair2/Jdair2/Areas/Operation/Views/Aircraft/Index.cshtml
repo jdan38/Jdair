@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Aircraft>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="wrapper">
+    <div class="main-content">
+        <br /><br />
+
+        <div class="row">
+            <div class="col-6">
+                <h2 class="text-info"> Aircraft List</h2>
+            </div>
+            <br />
+            <div class="col-6 text-right">
+                <partial name="_CreateButtonPartial" />
+            </div>
+        </div>
+
+
+        <div class="row row-inline-block small-spacing">
+            <div class="col-lg-6 col-xs-12">
+                <div class="box-content">
+
+                    @if (Model.Count() > 0)
+                    {
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                   
+                                    <th>@Html.DisplayNameFor(m => m.MaxSeating)</th>
+                            
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th scope="row">1</th>
+                                      
+                                        <td>@Html.DisplayNameFor(m => item.MaxSeating)</td>
+                                        
+                                        <td>EDIT | DElETE | DETAILS</td>
+                                    </tr>
+                                }
+
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <div class="box-content">
+                            <h4 class="box-title">Aircraft List</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="chartist-chart" style="height: 320px"><p>No Categories Exist</p></div>
+                            <!-- /#smil-animation-chartist-chart.chartist-chart -->
+                        </div>
+                        
+                    }
+                </div>
+          
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

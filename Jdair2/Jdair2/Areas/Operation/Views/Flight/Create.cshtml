@@ -1,0 +1,67 @@
+﻿@model Jdair2.Models.Flight
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<h2 class="text-info">Create Category</h2>
+<br />
+
+<form method="post" asp-action="Create">
+    <div class="border backgroundWhite">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="FlightNumber" class="control-label"></label>
+            <input asp-for="FlightNumber" class="form-control" />
+            <span asp-validation-for="FlightNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Gate_Number" class="control-label"></label>
+            <input asp-for="Gate_Number" class="form-control" />
+            <span asp-validation-for="Gate_Number" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TailNumber" class="control-label"></label>
+            <input asp-for="TailNumber" class="form-control" />
+            <span asp-validation-for="TailNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Airline" class="control-label"></label>
+            <input asp-for="Airline" class="form-control" />
+            <span asp-validation-for="Airline" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NumberOfPasseners" class="control-label"></label>
+            <input asp-for="NumberOfPasseners" class="form-control" />
+            <span asp-validation-for="NumberOfPasseners" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="first_airport" class="control-label"></label>
+            <input asp-for="first_airport" class="form-control" />
+            <span asp-validation-for="first_airport" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="final_airport" class="control-label"></label>
+            <input asp-for="final_airport" class="form-control" />
+            <span asp-validation-for="final_airport" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="departure_time" class="control-label"></label>
+            <input asp-for="departure_time" class="form-control" />
+            <span asp-validation-for="departure_time" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="arrival_time" class="control-label"></label>
+            <input asp-for="arrival_time" class="form-control" />
+            <span asp-validation-for="arrival_time" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-5 offset-2">
+                <partial name="_CreateAndBackToListButton" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
